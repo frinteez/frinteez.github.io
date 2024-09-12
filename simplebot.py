@@ -42,8 +42,6 @@ def handle_start(message):
     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     cat_button = types.KeyboardButton("Cat")
     dog_button = types.KeyboardButton("Dog")
-    button = types.InlineKeyboardButton(text="Open Mini App", url="https://yourdomain.com")
-    markup.add(button)
     markup.add(cat_button, dog_button)
 
     bot.send_message(message.chat.id, "Choose an option:", reply_markup=markup)
