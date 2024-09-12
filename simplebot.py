@@ -35,16 +35,13 @@ def log_message(message):
         print(f"Error writing to log file: {e}")
 
 @bot.message_handler(commands=['start', 'help'])
-def handle_command(message):
-    """Обработка команд /start и /help."""
-    log_message(message)  # Запись команды в лог
-
-    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    cat_button = types.KeyboardButton("Cat")
-    dog_button = types.KeyboardButton("Dog")
-    markup.add(cat_button, dog_button)
+def handle_start(message):
+    """Обработка команды /start для открытия мини-приложения."""
+    markup = types.InlineKeyboardMarkup()
+    mini_app_button = types.InlineKeyboardButton(text="Open Mini App", url="https://frinteez.github.io/")
+    markup.add(mini_app_button)
     
-    bot.send_message(message.chat.id, "Choose an option:", reply_markup=markup)
+    bot.send_message(message.chat.id, "Click the button below to open the mini app:", reply_markup=markup)
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
