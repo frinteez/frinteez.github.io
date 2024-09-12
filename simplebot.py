@@ -34,9 +34,11 @@ def log_message(message):
     except Exception as e:
         print(f"Error writing to log file: {e}")
 
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start'])
 def handle_start(message):
     """Обработка команды /start для открытия мини-приложения."""
+    log_message(message)  # Запись команды в лог
+
     markup = types.InlineKeyboardMarkup()
     mini_app_button = types.InlineKeyboardButton(text="Open Mini App", url="https://frinteez.github.io/")
     markup.add(mini_app_button)
