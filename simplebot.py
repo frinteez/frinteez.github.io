@@ -1,13 +1,15 @@
 import telebot
 import requests
+import os
 import logging
 from telebot import types
-import os
-TOKEN = os.getenv('TELEGRAM_TOKEN')
 
+# Замените TOKEN на ваш реальный токен
+TOKEN = os.getenv('TELEGRAM_TOKEN')
 bot = telebot.TeleBot(TOKEN)
 
-LOG_FILE = "/home/frinteez/messages_log.txt"
+# Путь к файлу логов
+LOG_FILE = "messages_log.txt"
 
 # Настройка логирования
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format='%(asctime)s - %(message)s')
