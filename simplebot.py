@@ -39,11 +39,14 @@ def handle_start(message):
     """Обработка команды /start для открытия мини-приложения."""
     log_message(message)  # Запись команды в лог
 
-    markup = types.InlineKeyboardMarkup()
-    mini_app_button = types.InlineKeyboardButton(text="Open Mini App", url="https://frinteez.github.io/")
-    markup.add(mini_app_button)
-    
-    bot.send_message(message.chat.id, "Click the button below to open the mini app:", reply_markup=markup)
+    markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    cat_button = types.KeyboardButton("Cat")
+    dog_button = types.KeyboardButton("Dog")
+    button = types.InlineKeyboardButton(text="Open Mini App", url="https://yourdomain.com")
+    markup.add(button)
+    markup.add(cat_button, dog_button)
+
+    bot.send_message(message.chat.id, "Choose an option:", reply_markup=markup)
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
