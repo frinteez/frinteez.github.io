@@ -1,0 +1,12 @@
+{
+    "name": "My First Telegram Mini App",
+    "description": "A simple Telegram Mini App example",
+    "version": "1.0",
+    "default_locale": "en",
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+  
